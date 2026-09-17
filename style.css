@@ -1199,12 +1199,12 @@ body {
 .btn-primary {
   background: var(--accent-indigo);
   border: 1px solid transparent;
-  color: #ffffff;
+  color: #2e2e2e;
   font-weight: 600;
 }
 
 .btn-primary:hover {
-  background: #4f46e5;
+  background: #38ff01;
 }
 
 /* ==========================================================================
