@@ -73,6 +73,7 @@ body {
   width: 550px;
   height: 550px;
   top: -150px;
+  /* top: 5%; */
   left: 50%;
   transform: translateX(-50%);
   background: radial-gradient(
@@ -112,6 +113,7 @@ body {
   z-index: 2;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   width: 100%;
   height: 100vh;
   max-width: 1440px;
@@ -530,6 +532,7 @@ body {
 .cards-grid {
   flex: 1;
   min-height: 0; /* Crucial for child scroll containment and no outer scroll */
+  max-height: 380px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
