@@ -269,7 +269,7 @@
                 <line x1="8" x2="8" y1="2" y2="6" />
                 <line x1="3" x2="21" y1="10" y2="10" />
               </svg>
-              <span>Calendar</span>
+              <!-- <span>Calendar</span> -->
             </div>
             <div class="cal-controls">
               <button class="cal-nav-btn" id="cal-prev" title="Previous Month">
@@ -281,7 +281,22 @@
               <button class="cal-nav-btn" id="cal-next" title="Next Month">
                 &gt;
               </button>
-              <button class="cal-today-btn" id="cal-today-btn">Today</button>
+              <button
+                class="cal-today-btn"
+                id="cal-today-btn"
+                title="Jump to Today"
+              >
+                Today
+              </button>
+              <button
+                class="cal-marked-chip"
+                id="cal-marked-btn"
+                title="View Marked Memories"
+              >
+                <span class="marked-chip-dot"></span>
+                <span class="marked-chip-text">Marked</span>
+                <span class="marked-chip-count" id="cal-marked-count">0</span>
+              </button>
             </div>
           </div>
           <div class="cal-body">
@@ -490,6 +505,89 @@
           <button class="btn btn-secondary" id="cd-modal-cancel">Cancel</button>
           <button class="btn btn-primary" id="cd-modal-save">
             Start Countdown
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: CALENDAR MEMORY / MARK DATE -->
+    <div class="modal-backdrop" id="cal-memory-modal">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h3 id="cal-memory-modal-title">Mark Calendar Memory</h3>
+          <button class="modal-close-btn" id="cal-memory-modal-close">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="cal-memory-date">Marked Date</label>
+            <div class="date-input-row">
+              <input type="date" id="cal-memory-date" required />
+              <span class="date-day-badge" id="cal-memory-day-badge"
+                >Select date</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cal-memory-title">Memory / Event Title</label>
+            <input
+              type="text"
+              id="cal-memory-title"
+              placeholder="e.g. Project Deadline, Birthday, Review"
+              maxlength="60"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="cal-memory-color">Memory Color</label>
+            <div class="color-input-wrapper">
+              <input type="color" id="cal-memory-color" value="#63f178" />
+              <span class="color-hex-badge" id="cal-memory-hex">#63f178</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-danger"
+            id="cal-memory-delete-btn"
+            style="display: none; margin-right: auto"
+          >
+            Delete
+          </button>
+          <button class="btn btn-secondary" id="cal-memory-modal-cancel">
+            Cancel
+          </button>
+          <button class="btn btn-primary" id="cal-memory-modal-save">
+            Save Memory
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: MARKED CALENDAR DETAILS LIST -->
+    <div class="modal-backdrop" id="cal-marked-list-modal">
+      <div class="modal-dialog modal-dialog-lg">
+        <div class="modal-header">
+          <div class="modal-title-with-badge">
+            <h3>Marked Calendar Details</h3>
+            <span class="badge" id="cal-marked-list-total">0 saved</span>
+          </div>
+          <button class="modal-close-btn" id="cal-marked-list-close">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="marked-list-container" id="cal-marked-list-container">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" id="cal-marked-add-new-btn">
+            + Add New Memory
+          </button>
+          <button class="btn btn-secondary" id="cal-marked-list-done">
+            Close
           </button>
         </div>
       </div>

@@ -21,11 +21,15 @@
 - Hover tooltips showing site titles.
 - **Fully Editable**: Click the edit pencil icon to modify titles and URLs or restore default presets.
 
-### 3. 🗓️ Interactive Calendar Card
+### 3. 🗓️ Interactive Calendar & Memory Card
 
 - Clean month grid view with weekday headers starting on Monday.
 - Previous (`<`) and Next (`>`) month navigation.
 - **Today** jump button and active day highlighting.
+- **Double-Click to Mark Memory**: Double-click any day to open a modal popup with date picker, day-of-week preview, title input, and dynamic native color picker (`input type="color"`) with live hex code preview.
+- **Calendar Memory Persistence**: All memories stored as structured JSON (`id`, `title`, `color`, `markedDate`, `created_at`, `updated_at`).
+- **Marked Details Chip**: Displays a live memory count badge in the calendar header. Clicking it opens a modal listing all saved memories with instant edit and delete actions.
+- **Visual Indicators**: Marked dates show colored glowing indicator dots and hover tooltips.
 
 ### 4. ✅ Complete Todo Manager Card
 
@@ -64,6 +68,9 @@ Personal Extsn/
 │       ├── clock.js         # Clock (DDD:HH:MM) & countdown engine + presets
 │       ├── favicons.js      # 5-Favicon quick launch bar + edit modal
 │       ├── calendar.js      # Interactive monthly calendar card
+│       ├── calendar.js      # Interactive calendar grid & double-click marking
+│       ├── calendarMemoryStore.js # Reusable JSON store for calendar memories
+│       ├── calendarModal.js # Reusable modal controller for marking & viewing list
 │       ├── todos.js         # Todo task manager card (CRUD & filters)
 │       ├── notes.js         # Auto-saving scratchpad notes card
 │       ├── storage.js       # Storage wrapper (chrome.storage.local / localStorage)

@@ -618,7 +618,7 @@ body {
   font-size: 12px;
   font-weight: 600;
   color: var(--text-primary);
-  min-width: 95px;
+  min-width: 70px;
   text-align: center;
 }
 
@@ -643,20 +643,61 @@ body {
 }
 
 .cal-today-btn {
-  padding: 2px 8px;
+  padding: 4px 12px;
   font-size: 10.5px;
-  background: rgba(116, 241, 99, 0.12);
-  border: 1px solid rgba(99, 241, 146, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
   border-radius: 6px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition-fast);
+  margin: auto 5px;
+}
+
+.cal-today-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+}
+
+.cal-marked-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 8px;
+  font-size: 10.5px;
+  background: rgba(116, 241, 99, 0.1);
+  border: 1px solid rgba(99, 241, 146, 0.3);
+  border-radius: var(--radius-full);
   color: #c7fee7;
   cursor: pointer;
   font-weight: 500;
   transition: var(--transition-fast);
 }
 
-.cal-today-btn:hover {
-  background: var(--accent-indigo);
-  color: #040404;
+.cal-marked-chip:hover {
+  background: rgba(116, 241, 99, 0.2);
+  border-color: var(--accent-indigo);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.marked-chip-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--accent-indigo);
+  box-shadow: 0 0 6px var(--accent-indigo);
+}
+
+.marked-chip-count {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 1px 5px;
+  border-radius: var(--radius-full);
+  color: #ffffff;
 }
 
 .cal-body {
@@ -699,6 +740,11 @@ body {
   cursor: pointer;
   transition: var(--transition-fast);
   position: relative;
+  padding: 2px 0;
+}
+
+.cal-day-num {
+  line-height: 1;
 }
 
 .cal-day-cell:hover {
@@ -721,6 +767,63 @@ body {
   border: 1px solid var(--accent-indigo);
   background: rgba(99, 241, 116, 0.15);
   color: #ffffff;
+}
+
+.cal-day-cell[data-tooltip] {
+  position: relative;
+}
+
+.cal-day-cell[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%) scale(0.85);
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-hover);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition-fast);
+  z-index: 40;
+  transition-delay: 1s;
+}
+
+.cal-day-cell:not(.has-memory)[data-tooltip]::after {
+  font-size: 10px;
+  color: var(--text-muted);
+  border-color: var(--border-subtle);
+  background: rgba(22, 26, 38, 0.95);
+}
+
+.cal-day-cell[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+.cal-memory-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin-top: 2px;
+  height: 4px;
+}
+
+.cal-memory-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 /* ==========================================================================
@@ -1197,6 +1300,232 @@ body {
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.1);
   color: var(--text-primary);
+}
+
+.modal-dialog-lg {
+  max-width: 540px;
+}
+
+.modal-title-with-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-title-with-badge .badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+}
+
+.date-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.date-input-row input {
+  flex: 1;
+}
+
+.date-day-badge {
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #c7fee7;
+  white-space: nowrap;
+}
+
+.color-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.color-input-wrapper input[type="color"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 42px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.color-input-wrapper input[type="color"]:hover {
+  border-color: var(--border-hover);
+  transform: scale(1.05);
+}
+
+.color-input-wrapper input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 3px;
+  border-radius: 8px;
+}
+
+.color-input-wrapper input[type="color"]::-webkit-color-swatch {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.color-hex-badge {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  color: var(--badge-accent, var(--accent-indigo));
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.btn-danger {
+  background: rgba(244, 63, 94, 0.15);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  color: #fda4af;
+}
+
+.btn-danger:hover {
+  background: #f43f5e;
+  color: #ffffff;
+}
+
+/* Marked Memories List Modal Styling */
+.marked-list-container {
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.marked-items-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.marked-item-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--item-accent, var(--accent-indigo));
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.marked-item-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--border-hover);
+  transform: translateY(-1px);
+}
+
+.marked-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.marked-color-pill {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.marked-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.marked-item-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.marked-item-date {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.marked-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.marked-edit-btn,
+.marked-del-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.marked-edit-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+}
+
+.marked-del-btn:hover {
+  background: rgba(244, 63, 94, 0.2);
+  color: var(--accent-rose);
+  border-color: rgba(244, 63, 94, 0.4);
+}
+
+.empty-marked-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 36px 16px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.empty-marked-state svg {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.empty-marked-state p {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.empty-marked-state span {
+  font-size: 11.5px;
 }
 
 .btn-primary {
