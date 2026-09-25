@@ -54,11 +54,21 @@
 
 ```
 Personal Extsn/
-├── manifest.json      # Chrome Extension (Manifest V3) configuration
-├── newtab.html        # Semantic HTML layout and modals
-├── style.css          # Dark glassmorphism styling & zero-scroll layout
-├── app.js             # Core logic (clock, countdown, calendar, todos, notes, storage)
-└── README.md          # Project documentation
+├── manifest.json            # Chrome Extension (Manifest V3) configuration
+├── newtab.html              # Semantic HTML layout and modals
+├── style.css                # Dark glassmorphism styling & zero-scroll layout
+├── js/
+│   ├── app.js               # Main application entry point & module orchestrator
+│   ├── constants.js         # Default bookmarks & countdown configuration
+│   └── modules/
+│       ├── clock.js         # Clock (DDD:HH:MM) & countdown engine + presets
+│       ├── favicons.js      # 5-Favicon quick launch bar + edit modal
+│       ├── calendar.js      # Interactive monthly calendar card
+│       ├── todos.js         # Todo task manager card (CRUD & filters)
+│       ├── notes.js         # Auto-saving scratchpad notes card
+│       ├── storage.js       # Storage wrapper (chrome.storage.local / localStorage)
+│       └── toast.js         # Toast feedback utility
+└── README.md                # Project documentation
 ```
 
 ---
