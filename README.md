@@ -82,11 +82,11 @@ Personal Extsn/
 
 ## 🛠️ Installation & Setup
 
-### In Google Chrome / Chromium Browsers (Brave, Edge, Opera, etc.)
+### In Browsers (Chrome, Brave, Edge, Opera, etc.)
 
 1. Clone or download this repository to your local machine:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/anantyash/Browser-Extension
    ```
 2. Open Chrome and navigate to:
    ```
