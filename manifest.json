@@ -1,13 +1,13 @@
 {
   "manifest_version": 3,
-  "name": "Chronos Tab - Focus & Dashboard",
+  "name": "Clockwork 0 - Every Second Counts",
   "version": "1.0.0",
-  "description": "Minimalist dark dashboard with DDD:HH:MM timer, countdown, favicons, calendar, todos, and notes.",
+  "description": "A minimalist new tab built around countdowns, time, tasks, memories, and notes because every second counts.",
   "permissions": ["storage"],
   "chrome_url_overrides": {
     "newtab": "newtab.html"
   },
   "action": {
-    "default_title": "Chronos New Tab"
+    "default_title": "Clockwork 0 - New Tab"
   }
 }

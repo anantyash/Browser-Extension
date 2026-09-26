@@ -1,27 +1,28 @@
-# ⏳ New Tab — Minimalist Productivity Dashboard
+# ⏳ Clockwork 0 - Every Second Counts
 
-> A lightweight, modern dark-themed Chrome extension that replaces your new tab page with a centered hero `DDD:HH:MM` clock & countdown, quick favicon launcher, calendar, todo manager, and auto-saving scratchpad — designed to fit seamlessly on any screen with **zero scroll**.
+> Time. Countdowns. Tasks. Memories. Notes.
+> One new tab. Zero distractions.
 
----
+**Clockwork 0** transforms your browser's new tab into a focused personal dashboard. Track the passage of time, count down to what matters, launch your favorite sites, capture memories, manage tasks, and keep quick notes — all within a **zero-scroll viewport**.
 
 ## ✨ Features
 
-### 1. ⏱️ Hero Clock & Countdown Display (Full Width, Centered)
+### 1. ⏱️ Time & Countdown
 
-- **Creative `DDD:HH:MM:SS` Format**: Displays elapsed full days since Jan 1st (padded to 3 digits) along with hours, minutes, and seconds (e.g., _Feb 2nd 20:50_ displays as `032:20:50`).
+- **Clockwork Format**: Displays the elapsed day of the year with hours, minutes, and seconds in a compact `DDD:HH:MM:SS` format (e.g., _Feb 2nd 20:50_ displays as `032:20:50`).
 - **Day-of-Year Progress**: Live metrics showing current day count, total days in year (handles leap years), and percentage of year completed (`Day 260 of 365 (71.2%)`).
 - **Countdown Mode**:
   - Countdown to custom target events (`Days : Hours : Mins : Secs`).
   - Modal configuration with quick presets: **End of Year**, **End of Month**, and **Weekend Kickoff**.
   - One-click mode toggle in the top bar.
 
-### 2. 🚀 Quick Launch Favicon Bar
+### 2. 🚀 Quick Launch
 
 - Displays 5 most visited/bookmarked shortcuts with crisp, auto-fetched high-resolution favicons.
 - Hover tooltips showing site titles.
 - **Fully Editable**: Click the edit pencil icon to modify titles and URLs or restore default presets.
 
-### 3. 🗓️ Interactive Calendar & Memory Card
+### 3. 🗓️ Calendar with Memories
 
 - Clean month grid view with weekday headers starting on Monday.
 - Previous (`<`) and Next (`>`) month navigation.
@@ -31,7 +32,7 @@
 - **Marked Details Chip**: Displays a live memory count badge in the calendar header. Clicking it opens a modal listing all saved memories with instant edit and delete actions.
 - **Visual Indicators**: Marked dates show colored glowing indicator dots and hover tooltips.
 
-### 4. ✅ Complete Todo Manager Card
+### 4. ✅ Todo Manager
 
 - Add tasks instantly with the Enter key or add button.
 - Checkbox completion with smooth strike-through animation.
@@ -39,7 +40,7 @@
 - Quick filters: **All**, **Active**, and **Done**.
 - Hover-to-delete functionality.
 
-### 5. 📝 Auto-Saving Notes Scratchpad Card
+### 5. 📝 Auto-Saving Notes Scratchpad
 
 - Instant debounced auto-save on every keystroke with a live status indicator (`Saved` / `Saving...`).
 - Real-time **Word Count** and **Character Count** tracker.
@@ -58,24 +59,23 @@
 
 ```
 Personal Extsn/
-├── manifest.json            # Chrome Extension (Manifest V3) configuration
+├── manifest.json            # Chrome Extension configuration
 ├── newtab.html              # Semantic HTML layout and modals
-├── style.css                # Dark glassmorphism styling & zero-scroll layout
+├── style.css
 ├── js/
 │   ├── app.js               # Main application entry point & module orchestrator
 │   ├── constants.js         # Default bookmarks & countdown configuration
 │   └── modules/
-│       ├── clock.js         # Clock (DDD:HH:MM) & countdown engine + presets
-│       ├── favicons.js      # 5-Favicon quick launch bar + edit modal
-│       ├── calendar.js      # Interactive monthly calendar card
-│       ├── calendar.js      # Interactive calendar grid & double-click marking
-│       ├── calendarMemoryStore.js # Reusable JSON store for calendar memories
-│       ├── calendarModal.js # Reusable modal controller for marking & viewing list
-│       ├── todos.js         # Todo task manager card (CRUD & filters)
-│       ├── notes.js         # Auto-saving scratchpad notes card
-│       ├── storage.js       # Storage wrapper (chrome.storage.local / localStorage)
-│       └── toast.js         # Toast feedback utility
-└── README.md                # Project documentation
+│       ├── clock.js         # Clock & countdown engine
+│       ├── favicons.js      #  Quick launch shortcuts & favicon handling
+│       ├── calendar.js      # Interactive calendar grid
+│       ├── calendarMemoryStore.js # Persistent calendar memory store
+│       ├── calendarModal.js #  Memory creation & management modal
+│       ├── todos.js         # Todo management & filters
+│       ├── notes.js         # Auto-saving scratchpad
+│       ├── storage.js       # Local storage abstraction
+│       └── toast.js         # Toast notification utility
+└── README.md
 ```
 
 ---
@@ -94,8 +94,8 @@ Personal Extsn/
    ```
 3. Enable **Developer mode** using the toggle in the top-right corner.
 4. Click the **Load unpacked** button in the top-left corner.
-5. Select the `Personal Extsn` project folder.
-6. Open a **New Tab** (`Ctrl + T` or `Cmd + T`) to enjoy your new dashboard!
+5. Select the project folder where you clone this.
+6. Open a **New Tab** (`Ctrl + T` or `Cmd + T`) and let Clockwork 0 take over.
 
 ### Standalone Browser Preview
 
