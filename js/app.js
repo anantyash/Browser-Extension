@@ -4,6 +4,7 @@
  */
 
 import { initClockAndCountdown } from "./modules/clock.js";
+import { initStopwatch } from "./modules/stopwatch.js";
 import { initFavicons } from "./modules/favicons.js";
 import { initCalendar } from "./modules/calendar.js";
 import { initTodos } from "./modules/todos.js";
@@ -11,6 +12,7 @@ import { initNotes } from "./modules/notes.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   initClockAndCountdown();
+  initStopwatch();
   initFavicons();
   initCalendar();
   initTodos();

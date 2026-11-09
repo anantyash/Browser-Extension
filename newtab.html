@@ -96,7 +96,7 @@
                 <circle cx="12" cy="12" r="10" />
                 <polyline points="12 6 12 12 16 14" />
               </svg>
-              <span>Clock</span>
+              <!-- <span>Clock</span> -->
             </button>
             <button
               class="mode-btn"
@@ -122,7 +122,30 @@
                   d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"
                 />
               </svg>
-              <span id="countdown-label-btn">Countdown</span>
+              <!-- <span id="countdown-label-btn">Countdown</span> -->
+            </button>
+            <button
+              class="mode-btn"
+              id="btn-mode-stopwatch"
+              data-mode="stopwatch"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="13" r="8" />
+                <path d="M12 9v4l2 2" />
+                <path d="M5 3 2 6" />
+                <path d="m22 6-3-3" />
+                <path d="M12 2v3" />
+              </svg>
+              <!-- <span>Stopwatch</span> -->
             </button>
           </div>
         </div>
@@ -245,6 +268,132 @@
               <span id="cd-status-text"
                 >Target Date: Dec 31, 2026, 23:59:59</span
               >
+            </div>
+          </div>
+        </div>
+
+        <!-- STOPWATCH VIEW -->
+        <div class="timer-display-wrap" id="stopwatch-view">
+          <div class="timer-format-badge">
+            <span class="tag">HOURS : MINUTES : SECONDS</span>
+          </div>
+          <div class="main-time-display stopwatch-digits" id="sw-digits">
+            <div class="time-block">
+              <span class="digit-group" id="sw-hh">00</span>
+              <span class="label">HOURS</span>
+            </div>
+            <span class="time-colon">:</span>
+            <div class="time-block">
+              <span class="digit-group" id="sw-mm">00</span>
+              <span class="label">MIN</span>
+            </div>
+            <span class="time-colon">:</span>
+            <div class="time-block">
+              <span class="digit-group" id="sw-ss">00</span>
+              <span class="label">SEC</span>
+            </div>
+            <div class="seconds-block sw-ms-block">
+              <span class="time-colon-sec">.</span>
+              <span class="sec-group" id="sw-ms">00</span>
+            </div>
+          </div>
+
+          <div class="sw-controls-row">
+            <button
+              class="sw-btn sw-btn-primary"
+              id="sw-btn-toggle"
+              title="Start / Pause"
+            >
+              <svg
+                class="sw-icon-play"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <svg
+                class="sw-icon-pause"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                style="display: none"
+              >
+                <rect x="6" y="4" width="4" height="16"></rect>
+                <rect x="14" y="4" width="4" height="16"></rect>
+              </svg>
+              <span id="sw-btn-toggle-text">Start</span>
+            </button>
+            <button
+              class="sw-btn sw-btn-secondary"
+              id="sw-btn-lap"
+              disabled
+              title="Record Lap"
+            >
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"
+                ></path>
+                <line x1="4" y1="22" x2="4" y2="15"></line>
+              </svg>
+              <span>Lap</span>
+            </button>
+            <button
+              class="sw-btn sw-btn-secondary"
+              id="sw-btn-reset"
+              disabled
+              title="Reset"
+            >
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"
+                ></path>
+                <path d="M3 3v5h5"></path>
+              </svg>
+              <span>Reset</span>
+            </button>
+            <div
+              class="sw-laps-badge"
+              id="sw-laps-badge"
+              style="display: none"
+              title="View Laps"
+            >
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"
+                ></path>
+                <line x1="4" y1="22" x2="4" y2="15"></line>
+              </svg>
+              <span id="sw-laps-count">0 Laps</span>
             </div>
           </div>
         </div>
@@ -587,6 +736,38 @@
             + Add New Memory
           </button>
           <button class="btn btn-secondary" id="cal-marked-list-done">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: STOPWATCH LAPS -->
+    <div class="modal-backdrop" id="sw-laps-modal">
+      <div class="modal-dialog modal-dialog-lg">
+        <div class="modal-header">
+          <div class="modal-title-with-badge">
+            <h3>Stopwatch Laps</h3>
+            <span class="badge" id="sw-laps-modal-total">0 recorded</span>
+          </div>
+          <button class="modal-close-btn" id="sw-laps-modal-close">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="marked-list-container" id="sw-laps-list-container">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-danger"
+            id="sw-laps-clear-btn"
+            style="margin-right: auto"
+          >
+            Clear Laps
+          </button>
+          <button class="btn btn-secondary" id="sw-laps-modal-done">
             Close
           </button>
         </div>

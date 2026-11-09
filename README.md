@@ -7,7 +7,7 @@
 
 ## ✨ Features
 
-### 1. ⏱️ Time & Countdown
+### 1. ⏱️ Time, Countdown & Stopwatch
 
 - **Clockwork Format**: Displays the elapsed day of the year with hours, minutes, and seconds in a compact `DDD:HH:MM:SS` format (e.g., _Feb 2nd 20:50_ displays as `032:20:50`).
 - **Day-of-Year Progress**: Live metrics showing current day count, total days in year (handles leap years), and percentage of year completed (`Day 260 of 365 (71.2%)`).
@@ -15,6 +15,12 @@
   - Countdown to custom target events (`Days : Hours : Mins : Secs`).
   - Modal configuration with quick presets: **End of Year**, **End of Month**, and **Weekend Kickoff**.
   - One-click mode toggle in the top bar.
+- **Stopwatch Mode**:
+  - High-precision centiseconds stopwatch (`HH:MM:SS.MS`) powered by `requestAnimationFrame` for 60fps rendering without drift.
+  - Interactive Start, Pause, Resume, and Reset controls.
+  - **Lap Recording**: Record split times and overall elapsed times on the fly.
+  - **Laps Modal with Highlights**: Interactive modal showing all recorded laps with automatic **Fastest** (emerald) and **Slowest** (rose) split highlights and clear action.
+  - **Persistent Session State**: Running or paused stopwatch time and recorded laps persist across page reloads and tab closures.
 
 ### 2. 🚀 Quick Launch
 
@@ -69,7 +75,8 @@ Personal Extsn/
 │   ├── constants.js         # Default bookmarks & countdown configuration
 │   └── modules/
 │       ├── clock.js         # Clock & countdown engine
-│       ├── favicons.js      #  Quick launch shortcuts & favicon handling
+│       ├── stopwatch.js     # Precision stopwatch & lap recording engine
+│       ├── favicons.js      # Quick launch shortcuts & favicon handling
 │       ├── calendar.js      # Interactive calendar grid
 │       ├── calendarMemoryStore.js # Persistent calendar memory store
 │       ├── calendarModal.js #  Memory creation & management modal

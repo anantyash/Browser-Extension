@@ -8,13 +8,15 @@ import { showToast } from "./toast.js";
 import { DEFAULT_COUNTDOWN } from "../constants.js";
 
 export function initClockAndCountdown() {
-  let currentMode = "clock"; // 'clock' | 'countdown'
+  let currentMode = "clock"; // 'clock' | 'countdown' | 'stopwatch'
   let countdownData = DEFAULT_COUNTDOWN();
 
   const btnClock = document.getElementById("btn-mode-clock");
   const btnCountdown = document.getElementById("btn-mode-countdown");
+  const btnStopwatch = document.getElementById("btn-mode-stopwatch");
   const clockView = document.getElementById("clock-view");
   const countdownView = document.getElementById("countdown-view");
+  const stopwatchView = document.getElementById("stopwatch-view");
 
   // DOM Elements for Clock
   const elDDD = document.getElementById("time-ddd");
@@ -46,22 +48,20 @@ export function initClockAndCountdown() {
 
   function setMode(mode) {
     currentMode = mode;
-    if (mode === "clock") {
-      btnClock.classList.add("active");
-      btnCountdown.classList.remove("active");
-      clockView.classList.add("active");
-      countdownView.classList.remove("active");
-    } else {
-      btnCountdown.classList.add("active");
-      btnClock.classList.remove("active");
-      countdownView.classList.add("active");
-      clockView.classList.remove("active");
-    }
+    btnClock?.classList.toggle("active", mode === "clock");
+    btnCountdown?.classList.toggle("active", mode === "countdown");
+    btnStopwatch?.classList.toggle("active", mode === "stopwatch");
+
+    clockView?.classList.toggle("active", mode === "clock");
+    countdownView?.classList.toggle("active", mode === "countdown");
+    stopwatchView?.classList.toggle("active", mode === "stopwatch");
+
     Storage.set({ activeMode: mode });
   }
 
-  btnClock.addEventListener("click", () => setMode("clock"));
-  btnCountdown.addEventListener("click", () => setMode("countdown"));
+  btnClock?.addEventListener("click", () => setMode("clock"));
+  btnCountdown?.addEventListener("click", () => setMode("countdown"));
+  btnStopwatch?.addEventListener("click", () => setMode("stopwatch"));
 
   // Calculate elapsed full days from Jan 1st 00:00 of current year
   // E.g. Feb 2nd 20:50 -> 32 elapsed days (032:20:50)
