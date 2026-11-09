@@ -35,6 +35,8 @@
 ### 4. ✅ Todo Manager
 
 - Add tasks instantly with the Enter key or add button.
+- **Drag-and-Drop Reordering**: Drag tasks up and down to adjust order intuitively with live insertion indicator lines and persistent order saving.
+- **Inline Task Editing**: Edit any todo via the edit pencil button or by double-clicking the task text, with Enter to save, Escape to cancel, and Save/Cancel buttons.
 - Checkbox completion with smooth strike-through animation.
 - Real-time progress badge `(completed/total)`.
 - Quick filters: **All**, **Active**, and **Done**.
